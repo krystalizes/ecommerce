@@ -1,0 +1,129 @@
+head {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    width: 100%;
+    height: 80px;
+    background-color: rgb(133, 127, 122);
+    display: flex;
+    align-items: center;
+    
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+    margin-right: 50px;
+    margin-left: 50px;
+    border-radius: 25px;
+}
+
+.btn {
+    background-color: rgb(133, 127, 122);
+    border: 0;
+    cursor: pointer;
+    margin-left: 5px;
+    margin-right: 5px;
+    font: optional;
+    height: 25px;
+    width: 80px;
+}
+
+.btn:hover {
+    font-size: 14px;
+}
+
+.timkiem {
+   margin-left: 30px;
+}
+
+
+.search-icon {
+    color:#fff;
+    font-size: 20px;
+    line-height: 46px;
+    cursor: pointer;
+}
+
+.search-icon:hover {
+    color: rgb(78, 57, 57);
+}
+
+.dk-dn1 {
+    font: optional;
+    font-size: 14px;
+    cursor: pointer;
+    margin-right: 10px
+}
+
+.dk-dn1:hover {
+    font-size: 15px;
+   
+}
+
+.dk-dn2 {
+    font: optional;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.dk-dn2:hover {
+    font-size: 15px;
+   
+}
+
+form {
+    margin-top: 50px;
+    margin-left: 600px;
+    margin-top: 200px;
+}
+
+
+body{
+  font-family: 'Noto Sans JP', sans-serif;
+}
+input[type=text], input[type=password] {
+  width: 30%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  resize: vertical;
+  border-radius:15px;
+  border:0;
+  box-shadow:4px 4px 10px rgba(0,0,0,0.2);
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  outline: none;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+ }
+ .btn1 {
+    background-color: #c5c2bf;
+    border-radius:10px;
+    cursor: pointer;
+    margin-left: 60px;
+    margin-right: 10px;
+    font: optional;
+    height: 25px;
+    width: 200px;
+}
+.alert-text{
+    color:red;
+    font-size: 20px;
+}

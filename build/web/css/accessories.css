@@ -1,0 +1,182 @@
+head {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    width: 100%;
+    height: 100px;
+    background-color: rgb(133, 127, 122);
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+    margin-right: 50px;
+    margin-left: 50px;
+    border-radius: 25px;
+}
+
+.btn {
+    background-color: rgb(133, 127, 122);
+    border: 0;
+    cursor: pointer;
+    margin-left: 10px;
+    margin-right: 10px;
+    font: optional;
+    height: 25px;
+    width: 80px;
+}
+
+.btn:hover {
+    font-size: 14px;
+}
+
+.timkiem {
+   margin-left: 400px;
+   margin-right: 20px;
+}
+
+
+.search-icon {
+    color:#fff;
+    font-size: 20px;
+    line-height: 46px;
+    cursor: pointer;
+}
+
+.search-icon:hover {
+    color: rgb(78, 57, 57);
+}
+
+.dk-dn1 {
+    font: optional;
+    font-size: 14px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.dk-dn1:hover {
+    font-size: 15px;
+   
+}
+
+.dk-dn2 {
+    font: optional;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.dk-dn2:hover {
+    font-size: 15px;
+   
+}
+a {
+    text-decoration: none;
+    color: black;
+ }
+.b1{
+    text-decoration: none;
+    color: rgb(12, 12, 12);
+    
+}
+.btl :active{
+    color: #fff;
+}
+.footer {
+    background-color: black;
+    height: 400px;
+    width: 100%;
+    display: flex;
+}
+.logo1{
+    width: 70px;
+    height: 70px;
+    margin-top: 50px;
+    
+}
+
+.f {
+    color: aliceblue;
+    font-size: 10px;
+}
+.cot1 {
+    margin-left: 50px;
+}
+.cot2{
+    margin-left: 200px;
+    margin-top: 50px;
+}
+.ff{
+    color: rgb(192, 50, 14);
+    font-size: 20px;
+}
+.f1{
+    color: aliceblue;
+    margin-left: 20px;
+}
+.cot3{
+    margin-left: 200px;
+    margin-top: 50px;
+}
+.picf {
+    height: 60px;
+}
+.giua{
+    margin-top: 100px;
+    background-color: white;
+    color: black;
+}
+.giua-2{
+    margin-left: 10%;
+    margin-right: 10%;
+}
+.pic1 {
+    height: 300px;
+    width: 300px;
+    align-items: center;
+}
+.pa1 {
+    text-align: center;
+}
+.tien1 {
+    color: rgb(219, 47, 47);
+    text-align: center;
+}
+.pic1:hover {
+    opacity: 0.8;
+    filter: alpha(opacity=50);
+    transform: scale(1.05);
+}
+ul {
+  list-style: none;
+}
+li{
+    width: 25%;
+    text-align: center;
+    float:left;
+    margin:25px;
+}
+li img{
+    width: 90%;
+}
+li{
+    text-decoration: none;
+}

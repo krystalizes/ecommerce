@@ -1,0 +1,375 @@
+head {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    width: 100%;
+    height: 60px;
+    background-color: rgb(133, 127, 122);
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+    margin-right: 50px;
+    margin-left: 50px;
+    border-radius: 25px;
+}
+
+.btn {
+    background-color: rgb(133, 127, 122);
+    border: 0;
+    cursor: pointer;
+    margin-left: 5px;
+    margin-right: 5px;
+    font: optional;
+    height: 25px;
+    width: 80px;
+}
+
+
+.btn:hover {
+    font-size: 14px;
+}
+
+.timkiem {
+   margin-left: 30px;
+}
+.timkiem1 {
+    margin-right: 10px;
+}
+
+.search-icon {
+    color:#fff;
+    font-size: 20px;
+    line-height: 46px;
+    cursor: pointer;
+}
+
+.search-icon:hover {
+    color: rgb(78, 57, 57);
+}
+
+.dk-dn1 {
+    font: optional;
+    font-size: 14px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.dk-dn1:hover {
+    font-size: 15px;
+   
+}
+
+.dk-dn2 {
+    font: optional;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.dk-dn2:hover {
+    font-size: 15px;
+   
+}
+.form1 {
+    display: flex;
+    margin-left: 200px;
+}
+.log {
+    display: flex;
+}
+a {
+    text-decoration: none;
+    color: black;
+ }
+.slide{
+    width: 100%;
+}
+.content-1 {
+  text-align: center;
+  font-size: 50px;
+  font-style: normal;
+}
+
+.content-2 {
+    display: flex;
+    width: 100%;
+}
+
+.pic1 {
+    height: 400px;
+    width: 400px;
+}
+
+.pic2 {
+    height: 400px;
+    width: 400px;
+}
+
+.pic3 {
+    height: 400px;
+    width: 400px;
+}
+
+
+.pic4 {
+    height: 400px;
+    width: 400px;
+}
+
+.pic1:hover {
+    opacity: 0.8;
+    filter: alpha(opacity=50);
+    transform: scale(1.05);
+}
+
+.pic2:hover {
+    opacity: 0.8;
+    filter: alpha(opacity=50);
+    transform: scale(1.05);
+}
+.pic3:hover {
+    opacity: 0.8;
+    filter: alpha(opacity=50);
+    transform: scale(1.05);
+}
+.pic4:hover {
+    opacity: 0.8;
+    filter: alpha(opacity=50);
+    transform: scale(1.05);
+}
+.pa1 {
+    margin-left: 150px;
+}
+
+.pa2 {
+    margin-left: 100px;
+}
+
+.pa3 {
+    margin-left: 100px;
+}
+
+.pa4 {
+    margin-left: 100px;
+}
+.tien1 {
+    color: rgb(219, 47, 47);
+    margin-left: 175px;
+}
+.tien2 {
+    color: rgb(219, 47, 47);
+    margin-left: 175px;
+}
+.tien3 {
+    color: rgb(219, 47, 47);
+    margin-left: 175px;
+}
+.tien4 {
+    color: rgb(219, 47, 47);
+    margin-left: 175px;
+}
+.content-3 {
+    width: 100%;
+    margin-top: 30px;
+   
+}
+.ct3-1 {
+    display: flex;
+}
+.w1 {
+    margin: 5px;
+}
+.w1:hover {
+    opacity: 0.8;
+    filter: alpha(opacity=50);
+    transform: scale(1.01);
+}
+.w2 {
+    margin: 5px;
+}
+.w2:hover {
+    opacity: 0.8;
+    filter: alpha(opacity=50);
+    transform: scale(1.01);
+}
+
+.ct3-2 {
+    width: 100%;
+    display: flex;
+}
+.w3 {
+    height: 1000px;
+    width: 1000px;
+    margin: 5px;
+
+}
+
+.w4 {
+    height: 500px;
+    width: 600px;
+    margin: 5px;
+}
+
+.w5 {
+    height: 500px;
+    width: 600px;
+    margin: 5px;
+}
+
+.w3:hover {
+    opacity: 0.8;
+    filter: alpha(opacity=50);
+    transform: scale(1.01);
+}
+.w4:hover {
+    opacity: 0.8;
+    filter: alpha(opacity=50);
+    transform: scale(1.01);
+}
+.w5:hover {
+    opacity: 0.8;
+    filter: alpha(opacity=50);
+    transform: scale(1.01);
+}
+.w6 {
+    width: 100%;
+}
+.w6:hover {
+    opacity: 0.8;
+    filter: alpha(opacity=50);
+    transform: scale(1.01);
+}
+.content-4 {
+    text-align: center;
+    font-size: 50px;
+    font-style: normal;
+}
+.content-5 {
+    display: flex;
+}
+.pic5 {
+    height: 400px;
+    width: 350px;
+    margin-left: 30px;
+    margin-right: 10px;
+}
+
+.pic6 {
+    height: 400px;
+    width: 350px;
+    margin-right: 10px;
+}
+
+.pic7 {
+    height: 400px;
+    width: 350px;
+    margin-right: 10px;
+}
+
+.pic8 {
+    height: 400px;
+    width: 350px;
+    margin-right: 10px;
+}
+.pic5:hover {
+    opacity: 0.8;
+    filter: alpha(opacity=50);
+    transform: scale(1.05);
+}
+.pic6:hover {
+    opacity: 0.8;
+    filter: alpha(opacity=50);
+    transform: scale(1.05);
+}
+.pic7:hover {
+    opacity: 0.8;
+    filter: alpha(opacity=50);
+    transform: scale(1.05);
+}
+.pic1:hover {
+    opacity: 0.8;
+    filter: alpha(opacity=50);
+    transform: scale(1.05);
+}
+.content-6 {
+    display: flex;
+}
+
+.w10 {
+    margin: 5px;
+}
+
+.w20 {
+    margin: 5px;
+}
+
+.w10:hover {
+    opacity: 0.8;
+    filter: alpha(opacity=50);
+    transform: scale(1.01);
+}
+
+.w20:hover {
+    opacity: 0.8;
+    filter: alpha(opacity=50);
+    transform: scale(1.01);
+}
+.footer {
+    background-color: black;
+    height: 400px;
+    width: 100%;
+    display: flex;
+}
+.logo1{
+    width: 70px;
+    height: 70px;
+    margin-top: 50px;
+    
+}
+
+.f {
+    color: aliceblue;
+    font-size: 10px;
+}
+.cot1 {
+    margin-left: 50px;
+}
+.cot2{
+    margin-left: 200px;
+    margin-top: 50px;
+}
+.ff{
+    color: rgb(192, 50, 14);
+    font-size: 20px;
+}
+.f1{
+    color: aliceblue;
+    margin-left: 20px;
+}
+.cot3{
+    margin-left: 200px;
+    margin-top: 50px;
+}
+.pic9 {
+    height: 60px;
+}
