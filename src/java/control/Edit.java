@@ -9,6 +9,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import model.Taikhoan;
 
 @WebServlet(name = "Edit", urlPatterns = {"/Edit"})
 public class Edit extends HttpServlet {
@@ -26,16 +28,21 @@ public class Edit extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
-        String id=request.getParameter("txt1");
-        String ten=request.getParameter("txt2");
-        String anh=request.getParameter("txt3");
-        String gia=request.getParameter("txt4");
-        String chitiet=request.getParameter("txt5");
-        String danhmuc=request.getParameter("txt6");
-        DAO dao=new DAO();
-        dao.suaProduct(ten, anh, gia, chitiet, danhmuc, id);
-        request.getRequestDispatcher("Manager").forward(request, response);
-        
+         HttpSession session=request.getSession();
+        Taikhoan a=(Taikhoan)session.getAttribute("taikhoan");
+        if (a == null){
+            request.getRequestDispatcher("Trangchu").forward(request, response);
+        }else{
+            String id=request.getParameter("txt1");
+            String ten=request.getParameter("txt2");
+            String anh=request.getParameter("txt3");
+            String gia=request.getParameter("txt4");
+            String chitiet=request.getParameter("txt5");
+            String danhmuc=request.getParameter("txt6");
+            DAO dao=new DAO();
+            dao.suaProduct(ten, anh, gia, chitiet, danhmuc, id);
+            request.getRequestDispatcher("Manager").forward(request, response);
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

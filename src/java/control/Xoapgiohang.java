@@ -30,11 +30,15 @@ public class Xoapgiohang extends HttpServlet {
         DAO dao=new DAO();
         HttpSession session=request.getSession();
         Taikhoan a=(Taikhoan) session.getAttribute("taikhoan");
-        int id=a.getId();
-        String pid=request.getParameter("pid");
-        int id1=Integer.parseInt(pid);
-        dao.xoaspgiohang(id, id1);
-        request.getRequestDispatcher("/Cart").forward(request, response);
+        if (a == null){
+            request.getRequestDispatcher("Trangchu").forward(request, response);
+        }else{
+            int id=a.getId();
+            String pid=request.getParameter("pid");
+            int id1=Integer.parseInt(pid);
+            dao.xoaspgiohang(id, id1);
+            request.getRequestDispatcher("/Cart").forward(request, response);
+        }       
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

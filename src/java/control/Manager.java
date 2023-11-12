@@ -10,7 +10,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import model.Sanpham;
+import model.Taikhoan;
 
 
 @WebServlet(name = "Manager", urlPatterns = {"/Manager"})
@@ -28,10 +30,16 @@ public class Manager extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        DAO dao=new DAO();
-        List<Sanpham> list=dao.getAllProduct();
-        request.setAttribute("listp", list);
-        request.getRequestDispatcher("/index/adminpage.jsp").forward(request, response);
+        HttpSession session=request.getSession();
+        Taikhoan a=(Taikhoan)session.getAttribute("taikhoan");
+        if (a == null){
+            request.getRequestDispatcher("Trangchu").forward(request, response);
+        }else{
+            DAO dao=new DAO();
+            List<Sanpham> list=dao.getAllProduct();
+            request.setAttribute("listp", list);
+            request.getRequestDispatcher("/index/adminpage.jsp").forward(request, response);
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

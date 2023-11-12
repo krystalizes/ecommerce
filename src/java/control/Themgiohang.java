@@ -31,17 +31,21 @@ public class Themgiohang extends HttpServlet {
         DAO dao=new DAO();
         HttpSession session=request.getSession();
         Taikhoan a=(Taikhoan) session.getAttribute("taikhoan");
-        int id=a.getId();
-        String pid=request.getParameter("txt1");
-        int id1=Integer.parseInt(pid);
-        String soluong=request.getParameter("soluong");
-        int soluong1=Integer.parseInt(soluong);
-        Giohang b=dao.checkGiohang(id, id1);
-        if(b==null){
-            dao.themgiohang(id,id1,soluong1);
-            request.getRequestDispatcher("Cart").forward(request, response);
+        if (a == null){
+            request.getRequestDispatcher("Login").forward(request, response);
         }else{
-            request.getRequestDispatcher("Trangchu").forward(request, response);
+            int id=a.getId();
+            String pid=request.getParameter("txt1");
+            int id1=Integer.parseInt(pid);
+            String soluong=request.getParameter("soluong");
+            int soluong1=Integer.parseInt(soluong);
+            Giohang b=dao.checkGiohang(id, id1);
+            if(b==null){
+                dao.themgiohang(id,id1,soluong1);
+                request.getRequestDispatcher("Cart").forward(request, response);
+            }else{
+                request.getRequestDispatcher("Trangchu").forward(request, response);
+            }
         }
         
     }

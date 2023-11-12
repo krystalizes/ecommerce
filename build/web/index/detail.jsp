@@ -29,7 +29,9 @@
                 <c:if test="${sessionScope.taikhoan != null}">         
                 <button class="btn">    <a class="b1" href="#">${sessionScope.taikhoan.user}</a>      </button>
                 <button class="btn">    <a class="b1" href="/WebApplication3/Logout">ĐĂNG XUẤT</a>      </button>
+                 <c:if test="${sessionScope.taikhoan.isAdmin == 0}">  
                 <button class="btn">    <a class="b1" href="/WebApplication3/Cart"><i class="ti-shopping-cart"></i></a>      </button>
+                </c:if>
                 </c:if>
             </div>
         </nav>
@@ -61,9 +63,11 @@
                 <p class="pa1">${detail.ten}</p>
                 <p class="tien1">${detail.gia}đ</p>
                 <p class="chitiet">Chi tiết:
-                ${detail.chitiet}</p>
+                ${detail.chitiet}</p>  
+                <c:if test="${sessionScope.taikhoan == null or (sessionScope.taikhoan.isAdmin == 0)}">
                 <p class="soluong">Số lượng:<input type="number" name="soluong" class="soluong1" min="1"></p>
                 <button class="btn" type="submit">Mua ngay</button>
+                </c:if>
             </div> 
              </form>
         </div>       

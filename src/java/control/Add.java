@@ -9,6 +9,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import model.Taikhoan;
 
 
 @WebServlet(name = "Add", urlPatterns = {"/Add"})
@@ -27,14 +29,20 @@ public class Add extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
-        String ten=request.getParameter("txt1");
-        String anh=request.getParameter("txt2");
-        String gia=request.getParameter("txt3");
-        String chitiet=request.getParameter("txt4");
-        String danhmuc=request.getParameter("txt5");
-        DAO dao=new DAO();
-        dao.themProduct(ten,anh,gia,chitiet,danhmuc);
-        request.getRequestDispatcher("Manager").forward(request, response);
+         HttpSession session=request.getSession();
+        Taikhoan a=(Taikhoan)session.getAttribute("taikhoan");
+        if (a == null){
+            request.getRequestDispatcher("Trangchu").forward(request, response);
+        }else{
+            String ten=request.getParameter("txt1");
+            String anh=request.getParameter("txt2");
+            String gia=request.getParameter("txt3");
+            String chitiet=request.getParameter("txt4");
+            String danhmuc=request.getParameter("txt5");
+            DAO dao=new DAO();
+            dao.themProduct(ten,anh,gia,chitiet,danhmuc);
+            request.getRequestDispatcher("Manager").forward(request, response);
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
