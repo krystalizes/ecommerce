@@ -37,10 +37,11 @@ public class Edit extends HttpServlet {
             String ten=request.getParameter("txt2");
             String anh=request.getParameter("txt3");
             String gia=request.getParameter("txt4");
+            String soluong=request.getParameter("txt7");
             String chitiet=request.getParameter("txt5");
             String danhmuc=request.getParameter("txt6");
             DAO dao=new DAO();
-            dao.suaProduct(ten, anh, gia, chitiet, danhmuc, id);
+            dao.suaProduct(ten, anh, gia, soluong, chitiet, danhmuc, id);
             request.getRequestDispatcher("Manager").forward(request, response);
         }
     }

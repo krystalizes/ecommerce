@@ -35,10 +35,10 @@
                 </c:if>
             </div>
         </nav>
-        <form action="Search" method="post" class="form1">
+        <form action="SearchNV" method="post" class="form1">
                 <div class="timkiem">
                     <div class="timkiem1">
-                    <input name="txt" type="text" >
+                    <input name="txt" type="text" id="search">
                     </div>
                     <button type="submit" class="btn"><i class="search-icon ti-search"></i></button> 
                 </div>
@@ -64,6 +64,8 @@
                                 <input name="txt2" type="text" class="ip">
                                 <P>Gía</p>
                                 <input name="txt3" type="text" class="ip">
+                                <P>Số lượng</p>
+                                <input name="txt6" type="text" class="ip">
                                 <P>Chi tiết</p>
                                 <input name="txt4" type="text" class="ip">
                                 <P>Danh mục</p>
@@ -86,6 +88,7 @@
                     <th>ID</th>
                     <th>TÊN</th>
                     <th>ẢNH</th>
+                    <th>SỐ LƯỢNG</th>
                     <th>GIÁ</th>
                     <th>CHI TIẾT</th>
                     <th></th>
@@ -97,6 +100,7 @@
                         <td>
                             <img src="${o.anh}" class="pic1">
                         </td>
+                        <td>${o.soluong}</td>
                         <td>${o.gia} đ</td>
                         <td>${o.chitiet}</td>
                         <td>
@@ -108,5 +112,6 @@
             </table>
         </center>
     </div>
+    <script>window.onload=function(){search.focus()}</script>
 </body>
 </html>

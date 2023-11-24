@@ -38,7 +38,7 @@
                 <button type="submit" class="btn"><i class="search-icon ti-search"></i></button> 
             </div>
             <div class="timkiem1">
-                <input name="txt" type="text" >
+                <input name="txt" type="text" id="search">
             </div>
         </form>
         <c:if test="${sessionScope.taikhoan == null}">         
@@ -79,9 +79,10 @@
                 </c:forEach>                    
             </table>
             <h3 class="chiphi">TỔNG TIỀN: ${tong}đ</h3>
-             <button  id="btn-open" class="btn1"><a href="Xoagiohang">Thanh toán</a> </button> 	   
+             <button  id="btn-open" class="btn1"><a href="new">Thanh toán</a> </button> 	   
             
         </center>
     </div>
+    <script>window.onload=function(){search.focus()}</script>
 </body>
 </html>

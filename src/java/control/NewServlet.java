@@ -12,11 +12,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import model.Giohang;
+import model.Sanpham;
 import model.Taikhoan;
 
-
-@WebServlet(name = "Cart", urlPatterns = {"/Cart"})
-public class Cart extends HttpServlet {
+@WebServlet(name = "new", urlPatterns = {"/new"})
+public class NewServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -31,12 +31,23 @@ public class Cart extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         DAO dao=new DAO();
+        
         HttpSession session=request.getSession();
         Taikhoan a=(Taikhoan) session.getAttribute("taikhoan");
-        int id=a.getId();
-        List<Giohang> list=dao.getCartbyID(id);
-        session.setAttribute("listp", list);
-        request.getRequestDispatcher("/index/giohang.jsp").forward(request, response);
+        if (a == null){
+            request.getRequestDispatcher("Trangchu").forward(request, response);
+        }else{
+            List<Giohang> retrievedList = (List<Giohang>)session.getAttribute("listp");
+
+            if (retrievedList != null && !retrievedList.isEmpty()) {
+                for (Giohang giohang : retrievedList) {       
+                    System.out.println("Sanpham Name: " + giohang.getTen());
+                }
+            } else {
+                System.out.println("The list is empty or null");
+            }
+            request.getRequestDispatcher("/Cart").forward(request, response);
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -41,7 +41,7 @@
                 <button type="submit" class="btn"><i class="search-icon ti-search"></i></button> 
             </div>
             <div class="timkiem1">
-                <input name="txt" type="text" >
+                <input name="txt" type="text" id="search">
             </div>
         </form>
         <c:if test="${sessionScope.taikhoan == null}">         
@@ -99,5 +99,6 @@
         </div>
 
     </div>
+    <script>window.onload=function(){search.focus()}</script>
 </body>
 </html>

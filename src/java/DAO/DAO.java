@@ -27,9 +27,10 @@ public class DAO {
                 list.add(new Sanpham(rs.getInt(1),
                         rs.getString(2),
                         rs.getString(3),
-                        rs.getDouble(4),
-                        rs.getString(5),
-                        rs.getString(6)));
+                        rs.getInt(4),
+                        rs.getInt(5),
+                        rs.getString(6),
+                        rs.getString(7)));
             }
         } catch (Exception e) {
         }
@@ -46,9 +47,10 @@ public class DAO {
                 list.add(new Sanpham(rs.getInt(1),
                         rs.getString(2),
                         rs.getString(3),
-                        rs.getDouble(4),
-                        rs.getString(5),
-                        rs.getString(6)));
+                        rs.getInt(4),
+                        rs.getInt(5),
+                        rs.getString(6),
+                        rs.getString(7)));
             }
         } catch (Exception e) {
         }
@@ -65,9 +67,10 @@ public class DAO {
                 list.add(new Sanpham(rs.getInt(1),
                         rs.getString(2),
                         rs.getString(3),
-                        rs.getDouble(4),
-                        rs.getString(5),
-                        rs.getString(6)));
+                        rs.getInt(4),
+                        rs.getInt(5),
+                        rs.getString(6),
+                        rs.getString(7)));
             }
         } catch (Exception e) {
         }
@@ -84,9 +87,10 @@ public class DAO {
                 list.add(new Sanpham(rs.getInt(1),
                         rs.getString(2),
                         rs.getString(3),
-                        rs.getDouble(4),
-                        rs.getString(5),
-                        rs.getString(6)));
+                        rs.getInt(4),
+                        rs.getInt(5),
+                        rs.getString(6),
+                        rs.getString(7)));
             }
         } catch (Exception e) {
         }
@@ -103,9 +107,10 @@ public class DAO {
                 list.add(new Sanpham(rs.getInt(1),
                         rs.getString(2),
                         rs.getString(3),
-                        rs.getDouble(4),
-                        rs.getString(5),
-                        rs.getString(6)));
+                        rs.getInt(4),
+                        rs.getInt(5),
+                        rs.getString(6),
+                        rs.getString(7)));
             }
         } catch (Exception e) {
         }
@@ -122,9 +127,10 @@ public class DAO {
                 return new Sanpham(rs.getInt(1),
                         rs.getString(2),
                         rs.getString(3),
-                        rs.getDouble(4),
-                        rs.getString(5),
-                        rs.getString(6));
+                        rs.getInt(4),
+                        rs.getInt(5),
+                        rs.getString(6),
+                        rs.getString(7));
             }
         } catch (Exception e) {
         }
@@ -142,9 +148,10 @@ public class DAO {
                 list.add(new Sanpham(rs.getInt(1),
                         rs.getString(2),
                         rs.getString(3),
-                        rs.getDouble(4),
-                        rs.getString(5),
-                        rs.getString(6)));
+                        rs.getInt(4),
+                        rs.getInt(5),
+                        rs.getString(6),
+                        rs.getString(7)));
             }
         } catch (Exception e) {
         }
@@ -207,34 +214,41 @@ public class DAO {
         } catch (Exception e) {
         }    
     }
-    public void themProduct(String ten, String anh, String gia, String chitiet, String danhmuc){
-        String query = "insert into [dbo].[product] ([name], [image], [price], [description], [category]) VALUES (?, ?, ?, ?, ?)";
+    public void themProduct(String ten, String anh, String gia, String soluong, String chitiet, String danhmuc){
+        String query = "insert into [dbo].[product] ([name], [image], [price], [amount], [description], [category]) VALUES (?, ?, ?, ?, ?, ?)";
         try {
             conn = new DBContext().getConnection();
             ps = conn.prepareStatement(query);
             ps.setString(1,ten); 
             ps.setString(2,anh);       
-            ps.setString(3,gia);       
-            ps.setString(4,chitiet);       
-            ps.setString(5,danhmuc);       
+            ps.setString(3,gia);  
+            ps.setString(4,soluong);
+            ps.setString(5,chitiet);       
+            ps.setString(6,danhmuc);       
             ps.executeUpdate();          
         } catch (Exception e) {
         }    
     }
-    public void suaProduct(String ten, String anh, String gia, String chitiet, String danhmuc, String id){
-        String query="update product set [name]=?, [image]=?, [price]=?, [description]=?, [category]=? where [id]=?";
-        try{ 
-            conn=new DBContext().getConnection();
-            ps=conn.prepareStatement(query);
+    public void suaProduct(String ten, String anh, String gia, String soluong, String chitiet, String danhmuc, String id) {
+         String query = "UPDATE product SET [name]=?, [image]=?, [price]=?, [amount]=?, [description]=?, [category]=? WHERE [id]=?";
+        try {
+            conn = new DBContext().getConnection();
+            ps = conn.prepareStatement(query);
             ps.setString(1, ten);
             ps.setString(2, anh);
             ps.setString(3, gia);
-            ps.setString(4, chitiet);
-            ps.setString(5, danhmuc);
-            ps.setString(6, id);
-            ps.executeUpdate();
-        }catch (Exception e){
-            
+            ps.setString(4, soluong);
+            ps.setString(5, chitiet);
+            ps.setString(6, danhmuc);
+            ps.setString(7, id);
+            int rowsAffected = ps.executeUpdate();
+            if (rowsAffected >0) {
+                System.out.println("Product updated successfully.");
+            } else {
+                System.out.println("No rows updated. Product with ID " + id + " not found.");
+            }
+        } catch (Exception e) {
+        e.printStackTrace(); // print the exception details for debugging
         }
     }
     public List<Giohang> getCartbyID(int id) {

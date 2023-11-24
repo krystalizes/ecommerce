@@ -6,7 +6,8 @@ public class Sanpham {
     private int id;
     private String ten;
     private String anh;
-    private double gia;
+    private int gia;
+    private int soluong;
     private String chitiet;
     private String danhmuc;
 
@@ -22,11 +23,12 @@ public class Sanpham {
     public Sanpham() {
     }
 
-    public Sanpham(int id, String ten, String anh, double gia, String chitiet, String danhmuc) {
+    public Sanpham(int id, String ten, String anh, int gia, int soluong, String chitiet, String danhmuc) {
         this.id = id;
         this.ten = ten;
         this.anh = anh;
         this.gia = gia;
+        this.soluong = soluong;
         this.chitiet = chitiet;
         this.danhmuc=danhmuc;
        
@@ -56,11 +58,19 @@ public class Sanpham {
         this.anh = anh;
     }
 
-    public double getGia() {
+    public int getGia() {
         return gia;
     }
+    
+    public int getSoluong() {
+        return soluong;
+    }
 
-    public void setGia(double gia) {
+    public void setSoluong(int soluong) {
+        this.soluong = soluong;
+    }
+
+    public void setGia(int gia) {
         this.gia = gia;
     }
 
@@ -74,7 +84,7 @@ public class Sanpham {
 
     @Override
     public String toString() {
-        return "Sanpham{" + "id=" + id + ", ten=" + ten + ", anh=" + anh + ", gia=" + gia + ", chitiet=" + chitiet + ", danhmuc=" + danhmuc + '}';
+        return "Sanpham{" + "id=" + id + ", ten=" + ten + ", anh=" + anh + ", gia=" + gia + ", soluong=" + soluong + ", chitiet=" + chitiet + ", danhmuc=" + danhmuc + '}';
     }
 
    

@@ -37,10 +37,11 @@ public class Add extends HttpServlet {
             String ten=request.getParameter("txt1");
             String anh=request.getParameter("txt2");
             String gia=request.getParameter("txt3");
+            String soluong=request.getParameter("txt6");
             String chitiet=request.getParameter("txt4");
             String danhmuc=request.getParameter("txt5");
             DAO dao=new DAO();
-            dao.themProduct(ten,anh,gia,chitiet,danhmuc);
+            dao.themProduct(ten,anh,gia,soluong,chitiet,danhmuc);
             request.getRequestDispatcher("Manager").forward(request, response);
         }
     }

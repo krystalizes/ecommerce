@@ -42,7 +42,7 @@ public class Themgiohang extends HttpServlet {
             Giohang b=dao.checkGiohang(id, id1);
             if(b==null){
                 dao.themgiohang(id,id1,soluong1);
-                request.getRequestDispatcher("Cart").forward(request, response);
+                request.getRequestDispatcher("Trangchu").forward(request, response);
             }else{
                 request.getRequestDispatcher("Trangchu").forward(request, response);
             }

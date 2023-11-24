@@ -62,6 +62,8 @@
                                 <input name="txt3" value="${detail.anh}" type="text" class="ip">
                                 <P>Gía</p>
                                 <input name="txt4" value="${detail.gia}" type="text" class="ip">
+                                <P>Số lượng</p>
+                                <input name="txt7" value="${detail.soluong}" type="text" class="ip">
                                 <P>Chi tiết</p>
                                 <input name="txt5" value="${detail.chitiet}" type="text" class="ip">
                                 <P>Danh mục</p>

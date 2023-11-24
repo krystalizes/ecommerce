@@ -10,13 +10,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import model.Giohang;
-import model.Taikhoan;
+import model.Sanpham;
 
-
-@WebServlet(name = "Cart", urlPatterns = {"/Cart"})
-public class Cart extends HttpServlet {
+@WebServlet(name = "SearchNV", urlPatterns = {"/SearchNV"})
+public class SearchNV extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -30,13 +27,14 @@ public class Cart extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
+        String txtSearch=request.getParameter("txt");
         DAO dao=new DAO();
-        HttpSession session=request.getSession();
-        Taikhoan a=(Taikhoan) session.getAttribute("taikhoan");
-        int id=a.getId();
-        List<Giohang> list=dao.getCartbyID(id);
-        session.setAttribute("listp", list);
-        request.getRequestDispatcher("/index/giohang.jsp").forward(request, response);
+        List<Sanpham> list=dao.searchProductbyName(txtSearch);
+        request.setAttribute("listp", list);
+        request.getRequestDispatcher("/index/adminpage.jsp").forward(request, response);
+        
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
