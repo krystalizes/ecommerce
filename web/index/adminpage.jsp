@@ -83,7 +83,7 @@
                 <h2><b>Manage Product</b></h2>
                 <button  id="btn-open" class="btn" onclick="modal()"><i class="ti-plus"></i></a> </button> 				
             </div>  
-            <table class="bangsp" border="1px" width="80%">
+            <table class="bangsp" border="1px" width="80%" style="vertical-align: middle; text-align: center;">
                 <tr>
                     <th>ID</th>
                     <th>TÊN</th>

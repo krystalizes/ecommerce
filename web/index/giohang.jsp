@@ -54,7 +54,7 @@
                 <h2><b>GIỎ HÀNG</b></h2>
                 <button  id="btn-open" class="btn"><a href="Xoagiohang"><i class="ti-close"></i></a> </button> 				
             </div>  
-            <table class="bangsp" border="1px" width="80%">
+            <table class="bangsp" border="1px" width="80%" style="vertical-align: middle; text-align: center;">
                 <tr>
                     <th>TÊN</th>
                     <th>ẢNH</th>
@@ -71,7 +71,12 @@
                             <img src="${o.anh}" class="pic1">
                         </td>
                         <td>${o.gia} đ</td>
-                        <td>${o.soluong}</td>
+                        <td>
+                            <form action="/WebApplication3/Editcart?pid=${o.id}" method="post" >
+                            <input type="number" value="${o.soluong}" name="soluong" class="soluong1" min="1" style="width: 50px; text-align: center;">
+                            <button class="btn" type="submit">Lưu</button>
+                            </form>
+                        </td>
                         <td>
                             <button  class="btn"><a  href="Xoapgiohang?pid=${o.id}"><i class="ti-trash"></i></a> </button> 
                         </td>
@@ -79,7 +84,7 @@
                 </c:forEach>                    
             </table>
             <h3 class="chiphi">TỔNG TIỀN: ${tong}đ</h3>
-             <button  id="btn-open" class="btn1"><a href="new">Thanh toán</a> </button> 	   
+             <button  id="btn-open" class="btn1"><a href="Payment">Thanh toán</a> </button> 	   
             
         </center>
     </div>

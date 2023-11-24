@@ -58,7 +58,6 @@
                  <img src="${detail.anh}" class="pic1">
             </div>
             <div class="giua3">
-                <form action="/WebApplication3/Themgiohang" method="post" class="form1">
                 <input name="txt1" value="${detail.id}" type="hidden" readonly class="ip">
                 <p class="pa1">${detail.ten}</p>
                 <p class="tien1">${detail.gia}đ</p>

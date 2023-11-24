@@ -1,22 +1,27 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package control;
 
 import DAO.DAO;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import model.Giohang;
 import model.Taikhoan;
 
-
-@WebServlet(name = "Cart", urlPatterns = {"/Cart"})
-public class Cart extends HttpServlet {
+/**
+ *
+ * @author acer
+ */
+@WebServlet(name = "Editcart", urlPatterns = {"/Editcart"})
+public class Editcart extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -30,13 +35,21 @@ public class Cart extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        DAO dao=new DAO();
-        HttpSession session=request.getSession();
-        Taikhoan a=(Taikhoan) session.getAttribute("taikhoan");
-        int id=a.getId();
-        List<Giohang> list=dao.getCartbyID(id);
-        request.setAttribute("listp", list);
-        request.getRequestDispatcher("/index/giohang.jsp").forward(request, response);
+        request.setCharacterEncoding("UTF-8");
+         HttpSession session=request.getSession();
+        Taikhoan a=(Taikhoan)session.getAttribute("taikhoan");
+        if (a == null){
+            request.getRequestDispatcher("Trangchu").forward(request, response);
+        }else{
+            int id=a.getId();
+            String pid=request.getParameter("pid");
+            int pid1=Integer.parseInt(pid);
+            String soluong=request.getParameter("soluong");
+            int soluong1=Integer.parseInt(soluong);         
+            DAO dao=new DAO();
+            dao.suaGiohang(soluong1, pid1, id);
+            request.getRequestDispatcher("Cart").forward(request, response);
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

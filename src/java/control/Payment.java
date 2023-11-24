@@ -15,8 +15,8 @@ import model.Giohang;
 import model.Sanpham;
 import model.Taikhoan;
 
-@WebServlet(name = "new", urlPatterns = {"/new"})
-public class NewServlet extends HttpServlet {
+@WebServlet(name = "Payment", urlPatterns = {"/Payment"})
+public class Payment extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,15 +37,17 @@ public class NewServlet extends HttpServlet {
         if (a == null){
             request.getRequestDispatcher("Trangchu").forward(request, response);
         }else{
-            List<Giohang> retrievedList = (List<Giohang>)session.getAttribute("listp");
-
-            if (retrievedList != null && !retrievedList.isEmpty()) {
-                for (Giohang giohang : retrievedList) {       
-                    System.out.println("Sanpham Name: " + giohang.getTen());
+            int id=a.getId();
+            List<Giohang> list=dao.getCartbyID(id);
+            for (Giohang giohang : list) {
+                int pid = giohang.getId();
+                int psoluong=dao.getProductAmountByID(pid);
+                int soluong = psoluong - giohang.getSoluong();
+                if (soluong >= 0) {
+                    dao.updateAmountProduct(soluong, pid);
                 }
-            } else {
-                System.out.println("The list is empty or null");
             }
+            dao.xoagiohang(id);
             request.getRequestDispatcher("/Cart").forward(request, response);
         }
     }

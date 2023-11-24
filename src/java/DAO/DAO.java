@@ -215,7 +215,7 @@ public class DAO {
         }    
     }
     public void themProduct(String ten, String anh, String gia, String soluong, String chitiet, String danhmuc){
-        String query = "insert into [dbo].[product] ([name], [image], [price], [amount], [description], [category]) VALUES (?, ?, ?, ?, ?, ?)";
+        String query = "insert into [dbo].[product] ([name], [image], [price], [amount], [description], [category]) OUTPUT INSERTED.id VALUES (?, ?, ?, ?, ?, ?)";
         try {
             conn = new DBContext().getConnection();
             ps = conn.prepareStatement(query);
@@ -241,14 +241,8 @@ public class DAO {
             ps.setString(5, chitiet);
             ps.setString(6, danhmuc);
             ps.setString(7, id);
-            int rowsAffected = ps.executeUpdate();
-            if (rowsAffected >0) {
-                System.out.println("Product updated successfully.");
-            } else {
-                System.out.println("No rows updated. Product with ID " + id + " not found.");
-            }
+            ps.executeUpdate();
         } catch (Exception e) {
-        e.printStackTrace(); // print the exception details for debugging
         }
     }
     public List<Giohang> getCartbyID(int id) {
@@ -322,5 +316,46 @@ public class DAO {
         } catch (Exception e) {
         }    
     }
+    public void suaGiohang(int soluong, int pid, int id) {
+         String query = "UPDATE Cart SET [Amount]=? WHERE [ProductID]=? and [AccountID]=?";
+        try {
+            conn = new DBContext().getConnection();
+            ps = conn.prepareStatement(query);
+            ps.setInt(1, soluong);
+            ps.setInt(2, pid);
+            ps.setInt(3, id);
+            ps.executeUpdate();               
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public void updateAmountProduct(int amount, int id) {
+         String query = "UPDATE product SET [amount]=? WHERE [id]=?";
+        try {
+            conn = new DBContext().getConnection();
+            ps = conn.prepareStatement(query);
+            ps.setInt(1, amount);
+            ps.setInt(2, id);
+            ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public int getProductAmountByID(int id) {
+        String query = "SELECT amount FROM product WHERE id=?";
+        try {
+            conn = new DBContext().getConnection();
+            ps = conn.prepareStatement(query);
+            ps.setInt(1, id);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                return rs.getInt("amount");
+            }
+        } catch (Exception e) {
+            e.printStackTrace(); 
+        }    
+        return -1;
+    }
+
     
 }
