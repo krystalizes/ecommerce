@@ -39,8 +39,8 @@ body {
     background-color: rgb(133, 127, 122);
     border: 0;
     cursor: pointer;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
     font: optional;
     height: 25px;
     width: 80px;
@@ -55,7 +55,6 @@ body {
 }
 .timkiem1 {
     margin-right: 10px;
-    margin-top: 10px;
 }
 
 .form1 {
@@ -164,20 +163,52 @@ a {
     width: 300px;
     align-items: center;
 }
-.tieude{
-    width:100%;
+.pa1 {
+    text-align: center;
+}
+.tien1 {
+    color: rgb(219, 47, 47);
+    text-align: center;
+}
+.pic1:hover {
+    opacity: 0.8;
+    filter: alpha(opacity=50);
+    transform: scale(1.05);
+}
+ul {
+  list-style: none;
+}
+
+
+li{
+    width: 25%;
+    text-align: center;
     float:left;
+    margin:25px;
 }
-.chiphi{
-    font-size:50px;
+
+li img{
+    width: 90%;
 }
-.btn1{
-  background-color:  rgb(133, 127, 122); 
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
+li{
+    text-decoration: none;
+}
+.clickable-row:hover {
+        cursor: pointer;
+        background-color: rgb(133, 127, 122); 
+}
+.giua {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.b2 {
+    display: block;
+    margin-bottom: 50px;
+}
+.b2:hover {
+    cursor: pointer;
+    background-color: rgb(133, 127, 122);
 }

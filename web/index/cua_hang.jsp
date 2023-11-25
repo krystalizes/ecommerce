@@ -25,6 +25,7 @@
                 <button class="btn">    <a class="b1" href="/WebApplication3/Accessories">ACCESSORY</a>    </button>
                 <c:if test="${sessionScope.taikhoan.isAdmin == 1}">      
                      <button class="btn">    <a class="b1" href="/WebApplication3/Manager">MANAGE PRODUCT</a>         </button>
+                     <button class="btn">    <a class="b1" href="/WebApplication3/Thongke">THỐNG KÊ</a>         </button>
                  </c:if>
                 <c:if test="${sessionScope.taikhoan != null}">  
                     <input name="${sessionScope.taikhoan.user}" type="hidden">
@@ -61,7 +62,7 @@
                         <a href="Detail?pid=${o.id}">
                             <img src="${o.anh}" class="pic1">
                             <p class="pa1">${o.ten}</p>
-                            <p class="tien1">${o.gia}đ</p>
+                            <p class="tien1">${o.gia}$</p>
                         </a>
                     </li>
                 </c:forEach>

@@ -25,6 +25,7 @@
                 <button class="btn">    <a class="b1" href="/WebApplication3/Accessories">ACCESSORY</a>    </button>
                 <c:if test="${sessionScope.taikhoan.isAdmin == 1}">      
                      <button class="btn">    <a class="b1" href="/WebApplication3/Manager">MANAGE PRODUCT</a>         </button>
+                     <button class="btn">    <a class="b1" href="/WebApplication3/Thongke">THỐNG KÊ</a>         </button>
                  </c:if>
                 <c:if test="${sessionScope.taikhoan != null}">         
                 <button class="btn">    <a class="b1" href="#">${sessionScope.taikhoan.user}</a>      </button>
@@ -101,7 +102,7 @@
                             <img src="${o.anh}" class="pic1">
                         </td>
                         <td>${o.soluong}</td>
-                        <td>${o.gia} đ</td>
+                        <td>${o.gia}$</td>
                         <td>${o.chitiet}</td>
                         <td>
                             <button  class="btn"><a  href="Loadedit?pid=${o.id}"><i class="ti-cut"></i></a> </button> 

@@ -374,14 +374,15 @@ public class DAO {
         }    
         return -1;
     }
-    public int themDonhang(int id, String date, int price){
-        String query = "insert into [dbo].[order] ([AccountID],[date],[price]) OUTPUT INSERTED.id VALUES (?, ?, ?)";
+    public int themDonhang(String transactionid, int id, String date, int price){
+        String query = "insert into [dbo].[order] ([transactionid],[AccountID],[date],[price]) OUTPUT INSERTED.id VALUES (?, ?, ?, ?)";
         try {
             conn = new DBContext().getConnection();
             ps = conn.prepareStatement(query, PreparedStatement.RETURN_GENERATED_KEYS);
-            ps.setInt(1,id); 
-            ps.setString(2,date);
-            ps.setInt(3,price);         
+            ps.setString(1,transactionid);
+            ps.setInt(2,id); 
+            ps.setString(3,date);
+            ps.setInt(4,price);         
             ps.execute(); 
             try (ResultSet generatedKeys = ps.getGeneratedKeys()) {
                 if (generatedKeys.next()) {
@@ -420,9 +421,10 @@ public class DAO {
             rs = ps.executeQuery();
             while (rs.next()) {
                 list.add(new Donhang(rs.getInt(1),
-                        rs.getInt(2),
-                        rs.getString(3),                                   
-                        rs.getInt(4)));
+                        rs.getString(2),
+                        rs.getInt(3),
+                        rs.getString(4),                                   
+                        rs.getInt(5)));
             }
         } catch (Exception e) {
             e.printStackTrace();

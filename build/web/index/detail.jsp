@@ -25,6 +25,7 @@
                 <button class="btn">    <a class="b1" href="/WebApplication3/Accessories">ACCESSORY</a>    </button>
                 <c:if test="${sessionScope.taikhoan.isAdmin == 1}">      
                      <button class="btn">    <a class="b1" href="/WebApplication3/Manager">MANAGE PRODUCT</a>         </button>
+                     <button class="btn">    <a class="b1" href="/WebApplication3/Thongke">THỐNG KÊ</a>         </button>
                  </c:if>
                 <c:if test="${sessionScope.taikhoan != null}">         
                 <button class="btn">    <a class="b1" href="#">${sessionScope.taikhoan.user}</a>      </button>
@@ -61,7 +62,7 @@
             <div class="giua3">
                 <input name="txt1" value="${detail.id}" type="hidden" readonly class="ip">
                 <p class="pa1">${detail.ten}</p>
-                <p class="tien1">${detail.gia}đ</p>
+                <p class="tien1">${detail.gia}$</p>
                 <p class="chitiet">Chi tiết:
                 ${detail.chitiet}</p>  
                 <c:if test="${sessionScope.taikhoan == null or (sessionScope.taikhoan.isAdmin == 0)}">

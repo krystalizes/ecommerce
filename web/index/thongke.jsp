@@ -6,9 +6,9 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Acessories</title>
+    <title>Outwear</title>
     <style>
-     <%@ include file="/css/top.css"%>
+     <%@ include file="/css/thongke.css"%>
     </style>
     <link rel="stylesheet" href="/WebApplication3/icon/themify-icons-font/themify-icons/themify-icons.css">
     <script src="test.js"></script>
@@ -23,7 +23,7 @@
                 <button class="btn">    <a class="b1" href="/WebApplication3/Outwear">OUTWEAR </a>      </button>
                 <button class="btn">    <a class="b1" href="/WebApplication3/Bottom">BOTTOM</a>       </button>
                 <button class="btn">    <a class="b1" href="/WebApplication3/Accessories">ACCESSORY</a>    </button>
-                <c:if test="${sessionScope.taikhoan.isAdmin == 1}">      
+                 <c:if test="${sessionScope.taikhoan.isAdmin == 1}">      
                      <button class="btn">    <a class="b1" href="/WebApplication3/Manager">MANAGE PRODUCT</a>         </button>
                      <button class="btn">    <a class="b1" href="/WebApplication3/Thongke">THỐNG KÊ</a>         </button>
                  </c:if>
@@ -54,51 +54,16 @@
     </div>
     
     <div class="giua">
-        <div class="giua-2">
-            <ul>
-                <c:forEach items="${listp}" var="o">
-                    <li>
-                        <a href="Detail?pid=${o.id}">
-                            <img src="${o.anh}" class="pic1">
-                            <p class="pa1">${o.ten}</p>
-                            <p class="tien1">${o.gia}$</p>
-                        </a>
-                    </li>
-                </c:forEach>
-            </ul>
-    </div>
+       <center>
+            <div class="tieude">
+                <h2><b>Chọn loại thống kê</b></h2>                				
+            </div>  
+            <a class="b2" id="tk1" href="/WebApplication3/Thongke1" style="margin-left: 0px;">THỐNG KÊ KHÁCH HÀNG TIÊU NHIỀU TIỀN NHẤT</a>
+            <a class="b2" id="tk2" href="/WebApplication3/Thongke2">THỐNG KÊ KHÁCH HÀNG MUA NHIỀU ĐƠN HÀNG NHẤT</a>
+            <a class="b2" id="tk3" href="/WebApplication3/Thongke3">THỐNG KÊ SẢN PHẨM ĐƯỢC MUA NHIỀU NHẤT</a>
+        </center>
     </div>
 
-    <div class="footer">
-        <div class="cot1">
-            <img  src="/WebApplication3/anh/logo.png" class="logo1">
-            <p class="f">Store Online: 0902 798 994</p>
-            <p class="f">HCM: The New PlayGround - 90 Lê Lai, Q1
-                Open: 10h - 21h30</p>
-            <p class="f">HCM: 772 Sư Vạn Hạnh, Phường 12, Q10
-                Open: 9h - 21h30</p>
-            <img class="picf" src="/WebApplication3/anh/logoSaleNoti.png">
-        </div>
-        <div class="cot2">
-            <p class="ff">CHÍNH SÁCH</p>
-            <p class="f1">CHÍNH SÁCH ĐỔI HÀNG</p>
-            <p class="f1">CHÍNH SÁCH BẢO MẬT</p>
-            <p class="f1">HỆ THỐNG CỬA HÀNG</p>
-            <p class="f1">HỆ THỐNG MEMBER</p>
-        </div>
-
-        <div class="cot3">
-            <p class="ff">DỊCH VỤ-HƯỚNG DẪN</p>
-            <p class="f1">GIAO HÀNG TẬN NƠI</p>
-            <p class="f1">MEMBER ONLINE</p>
-            <p class="f1">MEMBER OFFLINE</p>
-            <p class="f1">HƯỚNG DẪN ĐĂNG KÝ TÀI KHOẢN</p>
-            <p class="f1">HƯỚNG DẪN BẢO QUẢN</p>
-            <p class="f1">TUYỂN DỤNG</p>
-
-        </div>
-
-    </div>
     <script>window.onload=function(){search.focus()}</script>
 </body>
 </html>

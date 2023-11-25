@@ -12,6 +12,7 @@
      <%@ include file="/css/giohang.css"%>
     </style>
     <script src="js/modal.js"></script> 
+    <script src="https://www.paypal.com/sdk/js?client-id=AQwnc9SCGYvqLwx_MwmVKqKvxkrs7cx3l1Kj0woVyvILq_7jZ9nYS_-ch5FMRcjy8xAOqy-JpSoiLGzx&currency=USD"></script>
 </head>
 <body>
     <div class="header">
@@ -71,7 +72,7 @@
                         <td>
                             <img src="${o.anh}" class="pic1">
                         </td>
-                        <td>${o.gia} đ</td>
+                        <td>${o.gia}$</td>
                         <td>
                             <form action="/WebApplication3/Editcart?pid=${o.id}" method="post" >
                             <input type="number" value="${o.soluong}" name="soluong" class="soluong1" min="1" style="width: 50px; text-align: center;">
@@ -84,10 +85,32 @@
                     </tr>
                 </c:forEach>                    
             </table>
-            <h3 class="chiphi" >TỔNG TIỀN: ${tong}đ</h3>
-             <button  id="btn-open" class="btn1"><a href="Payment?tong=${tong}">Thanh toán</a> </button> 	   
-            
+            <h3 class="chiphi" >TỔNG TIỀN: ${tong}$</h3>
+            <div id="paypal-button-container" style="max-width:200px;"></div>
+            <script>
+                paypal.Buttons({
+                    createOrder: function(data, actions) {
+                        return actions.order.create({
+                            purchase_units: [{
+                                amount: {
+                                    value: '${tong}', 
+                                    currency_code: 'USD'
+                                }
+                            }]
+                        });
+                    },
+                    onApprove: function(data, actions) {
+                        return actions.order.capture().then(function(details) {
+                           var id = details.id;
+                           window.location.href = 'Payment?tong=${tong}&transactionid=' + id;
+                        });
+                    }                   
+                }).render('#paypal-button-container');
+            </script>
         </center>
+            
+            
+        
     </div>
     <script>window.onload=function(){search.focus()}</script>
 </body>

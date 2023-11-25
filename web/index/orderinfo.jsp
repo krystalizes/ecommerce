@@ -71,7 +71,7 @@
                             <img onclick="window.location='Detail?pid=${o.pid}'" src="${o.anh}" class="pic1">
                         </td>                      
                         <td>${o.amount}</td>
-                        <td>${o.price} d</td>                      
+                        <td>${o.price}$</td>                      
                     </tr>
                 </c:forEach>    
             </table>

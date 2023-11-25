@@ -11,12 +11,14 @@ package model;
  */
 public class Donhang {
     private int id;
+    private String transactionid;
     private int accountid;
     private String date;
     private int tien;
 
-    public Donhang(int id, int accountid, String date, int tien) {
+    public Donhang(int id, String transactionid, int accountid, String date, int tien) {
         this.id = id;
+        this.transactionid=transactionid;
         this.accountid = accountid;
         this.date = date;
         this.tien = tien;
@@ -33,6 +35,14 @@ public class Donhang {
         this.id = id;
     }
 
+    public String getTransactionid() {
+        return transactionid;
+    }
+
+    public void setTransactionid(String transactionid) {
+        this.transactionid = transactionid;
+    }      
+    
     public int getAccountid() {
         return accountid;
     }
@@ -59,8 +69,9 @@ public class Donhang {
 
     @Override
     public String toString() {
-        return "Donhang{" + "id=" + id + ", accountid=" + accountid + ", date=" + date + ", tien=" + tien + '}';
+        return "Donhang{" + "id=" + id + ", transactionid=" + transactionid + ", accountid=" + accountid + ", date=" + date + ", tien=" + tien + '}';
     }
-    
+
+   
     
 }

@@ -60,14 +60,16 @@
             <table class="bangsp" border="0px" width="80%" style="vertical-align: middle; text-align: center;">
                 <tr>
                     <th>ID</th>
+                    <th>MÃ GIAO DỊCH</th>
                     <th>NGÀY MUA</th>
                     <th>TỔNG TIỀN</th>                   
                 </tr>
                 <c:forEach items="${listp}" var="o">
                     <tr class="clickable-row" onclick="window.location='Orderinfo?oid=${o.id}'">                    
-                        <td>${o.id}</td>                      
+                        <td>${o.id}</td>
+                        <td>${o.transactionid}</td>
                         <td>${o.date}</td>
-                        <td>${o.tien} d</td>                      
+                        <td>${o.tien}$</td>                      
                     </tr>
                 </c:forEach>    
             </table>
