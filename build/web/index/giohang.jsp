@@ -83,8 +83,8 @@
                     </tr>
                 </c:forEach>                    
             </table>
-            <h3 class="chiphi">TỔNG TIỀN: ${tong}đ</h3>
-             <button  id="btn-open" class="btn1"><a href="Payment">Thanh toán</a> </button> 	   
+            <h3 class="chiphi" >TỔNG TIỀN: ${tong}đ</h3>
+             <button  id="btn-open" class="btn1"><a href="Payment?tong=${tong}">Thanh toán</a> </button> 	   
             
         </center>
     </div>

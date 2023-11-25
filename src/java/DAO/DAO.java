@@ -5,6 +5,7 @@ import context.DBContext;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import model.Giohang;
@@ -215,7 +216,7 @@ public class DAO {
         }    
     }
     public void themProduct(String ten, String anh, String gia, String soluong, String chitiet, String danhmuc){
-        String query = "insert into [dbo].[product] ([name], [image], [price], [amount], [description], [category]) OUTPUT INSERTED.id VALUES (?, ?, ?, ?, ?, ?)";
+        String query = "insert into [dbo].[product] ([name], [image], [price], [amount], [description], [category]) VALUES (?, ?, ?, ?, ?, ?)";
         try {
             conn = new DBContext().getConnection();
             ps = conn.prepareStatement(query);
@@ -356,6 +357,55 @@ public class DAO {
         }    
         return -1;
     }
-
+    public int getProductPriceByID(int id) {
+        String query = "SELECT price FROM product WHERE id=?";
+        try {
+            conn = new DBContext().getConnection();
+            ps = conn.prepareStatement(query);
+            ps.setInt(1, id);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                return rs.getInt("price");
+            }
+        } catch (Exception e) {
+            e.printStackTrace(); 
+        }    
+        return -1;
+    }
+    public int themDonhang(int id, int price){
+        String query = "insert into [dbo].[order] ([AccountID],[price]) OUTPUT INSERTED.id VALUES (?, ?)";
+        try {
+            conn = new DBContext().getConnection();
+            ps = conn.prepareStatement(query, PreparedStatement.RETURN_GENERATED_KEYS);
+            ps.setInt(1,id); 
+            ps.setInt(2,price);         
+            ps.execute(); 
+            try (ResultSet generatedKeys = ps.getGeneratedKeys()) {
+                if (generatedKeys.next()) {
+                    int generatedID = generatedKeys.getInt(1);
+                    return generatedID;
+                } else {
+                    throw new SQLException("Creating record failed, no ID obtained.");
+                }
+            }
+        } catch (Exception e) {
+             e.printStackTrace();
+        }    
+        return -1;
+    }
+    public void themDonhangchitiet(int oid, int pid, int soluong, int price){
+        String query = "insert into [dbo].[orderinfo]([orderid],[ProductID],[amount],[price]) values(?,?,?,?)";   
+        try {
+            conn = new DBContext().getConnection();
+            ps = conn.prepareStatement(query);
+            ps.setInt(1,oid);
+            ps.setInt(2,pid);
+            ps.setInt(3,soluong);
+            ps.setInt(4,price);
+            ps.executeUpdate();          
+        } catch (Exception e) {
+            e.printStackTrace();
+        }    
+    }
     
 }

@@ -38,15 +38,21 @@ public class Payment extends HttpServlet {
             request.getRequestDispatcher("Trangchu").forward(request, response);
         }else{
             int id=a.getId();
+            String tong = request.getParameter("tong");
+            int tongval=(int)Double.parseDouble(tong);
             List<Giohang> list=dao.getCartbyID(id);
             for (Giohang giohang : list) {
                 int pid = giohang.getId();
                 int psoluong=dao.getProductAmountByID(pid);
                 int soluong = psoluong - giohang.getSoluong();
+                int price=dao.getProductPriceByID(pid);
                 if (soluong >= 0) {
                     dao.updateAmountProduct(soluong, pid);
+                    dao.themDonhangchitiet(tongval, pid, soluong, price);
                 }
             }
+            
+            int i=dao.themDonhang(id,tongval);
             dao.xoagiohang(id);
             request.getRequestDispatcher("/Cart").forward(request, response);
         }
