@@ -8,6 +8,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import model.Donhang;
+import model.Donhanginfo;
 import model.Giohang;
 import model.Sanpham;
 import model.Taikhoan;
@@ -372,13 +374,14 @@ public class DAO {
         }    
         return -1;
     }
-    public int themDonhang(int id, int price){
-        String query = "insert into [dbo].[order] ([AccountID],[price]) OUTPUT INSERTED.id VALUES (?, ?)";
+    public int themDonhang(int id, String date, int price){
+        String query = "insert into [dbo].[order] ([AccountID],[date],[price]) OUTPUT INSERTED.id VALUES (?, ?, ?)";
         try {
             conn = new DBContext().getConnection();
             ps = conn.prepareStatement(query, PreparedStatement.RETURN_GENERATED_KEYS);
             ps.setInt(1,id); 
-            ps.setInt(2,price);         
+            ps.setString(2,date);
+            ps.setInt(3,price);         
             ps.execute(); 
             try (ResultSet generatedKeys = ps.getGeneratedKeys()) {
                 if (generatedKeys.next()) {
@@ -407,5 +410,43 @@ public class DAO {
             e.printStackTrace();
         }    
     }
-    
+    public List<Donhang> getDonhangbyID(int id) {
+        List<Donhang> list = new ArrayList<>();
+        String query = "select * from [dbo].[order] where [AccountID]=?";
+        try {
+            conn = new DBContext().getConnection();
+            ps = conn.prepareStatement(query);
+            ps.setInt(1, id);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new Donhang(rs.getInt(1),
+                        rs.getInt(2),
+                        rs.getString(3),                                   
+                        rs.getInt(4)));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+    public List<Donhanginfo> getDonhanginfobyID(int oid) {
+        List<Donhanginfo> list = new ArrayList<>();
+        String query = "select dbo.orderinfo.orderid,dbo.orderinfo.ProductID,dbo.product.image,dbo.orderinfo.amount,dbo.orderinfo.price from [dbo].[orderinfo],dbo.product where [orderid]=? and dbo.product.id=dbo.orderinfo.ProductID";
+        try {
+            conn = new DBContext().getConnection();
+            ps = conn.prepareStatement(query);
+            ps.setInt(1, oid);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new Donhanginfo(rs.getInt(1),
+                        rs.getInt(2),
+                        rs.getString(3),                                   
+                        rs.getInt(4),
+                        rs.getInt(5)));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
 }

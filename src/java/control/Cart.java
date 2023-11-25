@@ -33,10 +33,14 @@ public class Cart extends HttpServlet {
         DAO dao=new DAO();
         HttpSession session=request.getSession();
         Taikhoan a=(Taikhoan) session.getAttribute("taikhoan");
-        int id=a.getId();
-        List<Giohang> list=dao.getCartbyID(id);
-        request.setAttribute("listp", list);
-        request.getRequestDispatcher("/index/giohang.jsp").forward(request, response);
+        if (a == null){
+            request.getRequestDispatcher("Trangchu").forward(request, response);
+        }else{
+            int id=a.getId();
+            List<Giohang> list=dao.getCartbyID(id);
+            request.setAttribute("listp", list);
+            request.getRequestDispatcher("/index/giohang.jsp").forward(request, response);
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

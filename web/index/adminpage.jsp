@@ -22,7 +22,7 @@
                 <button class="btn">    <a class="b1" href="/WebApplication3/Top">TOP </a>         </button>
                 <button class="btn">    <a class="b1" href="/WebApplication3/Outwear">OUTWEAR </a>      </button>
                 <button class="btn">    <a class="b1" href="/WebApplication3/Bottom">BOTTOM</a>       </button>
-                <button class="btn">    <a class="b1" href="/WebApplication3/Accessories">ACCESSORIES</a>    </button>
+                <button class="btn">    <a class="b1" href="/WebApplication3/Accessories">ACCESSORY</a>    </button>
                 <c:if test="${sessionScope.taikhoan.isAdmin == 1}">      
                      <button class="btn">    <a class="b1" href="/WebApplication3/Manager">MANAGE PRODUCT</a>         </button>
                  </c:if>
