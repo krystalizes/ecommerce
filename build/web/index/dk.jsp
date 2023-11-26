@@ -21,9 +21,7 @@
                 <button class="btn">    <a class="b1" href="/WebApplication3/Top">TOP </a>         </button>
                 <button class="btn">    <a class="b1" href="/WebApplication3/Outwear">OUTWEAR </a>      </button>
                 <button class="btn">    <a class="b1" href="/WebApplication3/Bottom">BOTTOM</a>       </button>
-                <button class="btn">    <a class="b1" href="/WebApplication3/Accessories">ACCESSORIES</a>    </button>
-                <button class="btn">    <a class="b1" href="/WebApplication3/index/sale.jsp">SALES</a>         </button>
-                <button class="btn">    <a class="b1" href="/WebApplication3/Trangchu">INSTAGRAM</a>      </button>
+                <button class="btn">    <a class="b1" href="/WebApplication3/Accessories">ACCESSORY</a>    </button>
             </div>
         </nav>
                 <div class="dk-dn1" >   <a href="/WebApplication3/index/dk.jsp">ĐĂNG KÍ </a>   </div>

@@ -1,4 +1,8 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package control;
 
 import DAO.DAO;
@@ -10,11 +14,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import model.Giohang;
+import model.Sanpham;
 import model.Taikhoan;
 
-@WebServlet(name = "Themgiohang", urlPatterns = {"/Themgiohang"})
-public class Themgiohang extends HttpServlet {
+/**
+ *
+ * @author acer
+ */
+@WebServlet(name = "LoadeditAcc", urlPatterns = {"/LoadeditAcc"})
+public class LoadeditAcc extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -28,35 +36,18 @@ public class Themgiohang extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        DAO dao=new DAO();
         HttpSession session=request.getSession();
-        Taikhoan a=(Taikhoan) session.getAttribute("taikhoan");
+        DAO dao=new DAO();
+        Taikhoan a=(Taikhoan)session.getAttribute("taikhoan");
         if (a == null){
-            request.getRequestDispatcher("Login").forward(request, response);
+            request.getRequestDispatcher("Trangchu").forward(request, response);
         }else{
             int id=a.getId();
             a=dao.getTaikhoanbyID(id);
             request.setAttribute("detail", a);
-            Taikhoan b=(Taikhoan) session.getAttribute("taikhoan");
-            String name=b.getName();
-            String sdt=b.getSdt();
-            String dchi=b.getDchi();
-            if(name==null||sdt==null||dchi==null){
-                request.getRequestDispatcher("LoadeditAcc").forward(request, response);
-            }
-            String pid=request.getParameter("txt1");
-            int id1=Integer.parseInt(pid);
-            String soluong=request.getParameter("soluong");
-            int soluong1=Integer.parseInt(soluong);
-            Giohang c=dao.checkGiohang(id, id1);
-            if(c==null){
-                dao.themgiohang(id,id1,soluong1);
-                request.getRequestDispatcher("Trangchu").forward(request, response);
-            }else{
-                request.getRequestDispatcher("Cart").forward(request, response);
-            }
+//            System.out.println(a);
+            request.getRequestDispatcher("/index/editAcc.jsp").forward(request, response);
         }
-        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

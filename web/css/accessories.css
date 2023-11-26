@@ -38,8 +38,8 @@ body {
     background-color: rgb(133, 127, 122);
     border: 0;
     cursor: pointer;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 1px;
+    margin-right: 1px;
     font: optional;
     height: 25px;
     width: 80px;

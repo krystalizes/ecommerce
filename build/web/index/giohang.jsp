@@ -27,11 +27,14 @@
                 <c:if test="${sessionScope.taikhoan.isAdmin == 1}">      
                      <button class="btn">    <a class="b1" href="/WebApplication3/Manager">MANAGE PRODUCT</a>         </button>
                  </c:if>
-                <c:if test="${sessionScope.taikhoan != null}">         
-                <button class="btn">    <a class="b1" href="#">${sessionScope.taikhoan.user}</a>      </button>
-                <button class="btn">    <a class="b1" href="/WebApplication3/Logout">ĐĂNG XUẤT</a>      </button>
+                <c:if test="${sessionScope.taikhoan != null}">   
+                <c:if test="${sessionScope.taikhoan.isAdmin == 0}">  
                 <button class="btn">    <a class="b1" href="/WebApplication3/Cart"><i class="ti-shopping-cart"></i></a>      </button>
                 <button class="btn">    <a class="b1" href="/WebApplication3/Orderhis">LỊCH SỬ</a>      </button>
+                <button class="btn">    <a class="b1" href="/WebApplication3/LoadeditAcc">THÔNG TIN</a>      </button>
+                </c:if>
+                <button class="btn">    <a class="b1" href="#">${sessionScope.taikhoan.user}</a>      </button>
+                <button class="btn">    <a class="b1" href="/WebApplication3/Logout">ĐĂNG XUẤT</a>      </button>             
                 </c:if>
             </div>
         </nav>
@@ -54,7 +57,7 @@
         <center>
             <div class="tieude">
                 <h2><b>GIỎ HÀNG</b></h2>
-                <button  id="btn-open" class="btn"><a href="Xoagiohang"><i class="ti-close"></i></a> </button> 				
+                <button  id="btn-open" class="btn2"><a href="Xoagiohang"><i class="ti-close"></i></a> </button> 				
             </div>  
             <table class="bangsp" border="1px" width="80%" style="vertical-align: middle; text-align: center;">
                 <tr>
@@ -76,16 +79,17 @@
                         <td>
                             <form action="/WebApplication3/Editcart?pid=${o.id}" method="post" >
                             <input type="number" value="${o.soluong}" name="soluong" class="soluong1" min="1" style="width: 50px; text-align: center;">
-                            <button class="btn" type="submit">Lưu</button>
+                            <button class="btn2" type="submit">Lưu</button>
                             </form>
                         </td>
                         <td>
-                            <button  class="btn"><a  href="Xoapgiohang?pid=${o.id}"><i class="ti-trash"></i></a> </button> 
+                            <button  class="btn2"><a  href="Xoapgiohang?pid=${o.id}"><i class="ti-trash"></i></a> </button> 
                         </td>
                     </tr>
                 </c:forEach>                    
             </table>
             <h3 class="chiphi" >TỔNG TIỀN: ${tong}$</h3>
+            <c:if test="${not empty listp}" >  
             <div id="paypal-button-container" style="max-width:200px;"></div>
             <script>
                 paypal.Buttons({
@@ -107,6 +111,7 @@
                     }                   
                 }).render('#paypal-button-container');
             </script>
+            </c:if>
         </center>
             
             

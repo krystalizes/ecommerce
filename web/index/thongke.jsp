@@ -27,13 +27,14 @@
                      <button class="btn">    <a class="b1" href="/WebApplication3/Manager">MANAGE PRODUCT</a>         </button>
                      <button class="btn">    <a class="b1" href="/WebApplication3/Thongke">THỐNG KÊ</a>         </button>
                  </c:if>
-                <c:if test="${sessionScope.taikhoan != null}">         
-                <button class="btn">    <a class="b1" href="#">${sessionScope.taikhoan.user}</a>      </button>
-                <button class="btn">    <a class="b1" href="/WebApplication3/Logout">ĐĂNG XUẤT</a>      </button>
-                 <c:if test="${sessionScope.taikhoan.isAdmin == 0}">  
+                <c:if test="${sessionScope.taikhoan != null}">   
+                <c:if test="${sessionScope.taikhoan.isAdmin == 0}">  
                 <button class="btn">    <a class="b1" href="/WebApplication3/Cart"><i class="ti-shopping-cart"></i></a>      </button>
                 <button class="btn">    <a class="b1" href="/WebApplication3/Orderhis">LỊCH SỬ</a>      </button>
+                <button class="btn">    <a class="b1" href="/WebApplication3/LoadeditAcc">THÔNG TIN</a>      </button>
                 </c:if>
+                <button class="btn">    <a class="b1" href="#">${sessionScope.taikhoan.user}</a>      </button>
+                <button class="btn">    <a class="b1" href="/WebApplication3/Logout">ĐĂNG XUẤT</a>      </button>             
                 </c:if>
             </div>
         </nav>
@@ -58,9 +59,9 @@
             <div class="tieude">
                 <h2><b>Chọn loại thống kê</b></h2>                				
             </div>  
-            <a class="b2" id="tk1" href="/WebApplication3/Thongke1" style="margin-left: 0px;">THỐNG KÊ KHÁCH HÀNG TIÊU NHIỀU TIỀN NHẤT</a>
-            <a class="b2" id="tk2" href="/WebApplication3/Thongke2">THỐNG KÊ KHÁCH HÀNG MUA NHIỀU ĐƠN HÀNG NHẤT</a>
-            <a class="b2" id="tk3" href="/WebApplication3/Thongke3">THỐNG KÊ SẢN PHẨM ĐƯỢC MUA NHIỀU NHẤT</a>
+            <a class="btn2" id="tk1" href="/WebApplication3/Thongke1" style="margin-left: 0px;">THỐNG KÊ KHÁCH HÀNG TIÊU NHIỀU TIỀN NHẤT</a>
+            <a class="btn2" id="tk2" href="/WebApplication3/Thongke2">THỐNG KÊ KHÁCH HÀNG MUA NHIỀU ĐƠN HÀNG NHẤT</a>
+            <a class="btn2" id="tk3" href="/WebApplication3/Thongke3">THỐNG KÊ SẢN PHẨM ĐƯỢC MUA NHIỀU NHẤT</a>
         </center>
     </div>
 

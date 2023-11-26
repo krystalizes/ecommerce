@@ -7,13 +7,20 @@ public class Taikhoan {
     private String user;
     private String pass;
     private int isAdmin;
+    private String name;
+    private String sdt;
+    private String dchi;
 
-    public Taikhoan(int id, String user, String pass, int isAdmin) {
+    public Taikhoan(int id, String user, String pass, int isAdmin, String name, String sdt, String dchi) {
         this.id = id;
         this.user = user;
         this.pass = pass;
         this.isAdmin = isAdmin;
+        this.name = name;
+        this.sdt = sdt;
+        this.dchi = dchi;
     }
+    
     
     public Taikhoan() {
     }
@@ -50,10 +57,36 @@ public class Taikhoan {
         this.isAdmin = isAdmin;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getSdt() {
+        return sdt;
+    }
+
+    public void setSdt(String sdt) {
+        this.sdt = sdt;
+    }
+
+    public String getDchi() {
+        return dchi;
+    }
+
+    public void setDchi(String dchi) {
+        this.dchi = dchi;
+    }
+
     @Override
     public String toString() {
-        return "Acount{" + "id=" + id + ", user=" + user + ", pass=" + pass  + ", isAdmin=" + isAdmin + '}';
+        return "Taikhoan{" + "id=" + id + ", user=" + user + ", pass=" + pass + ", isAdmin=" + isAdmin + ", name=" + name + ", sdt=" + sdt + ", dchi=" + dchi + '}';
     }
+    
+    
     
 
     

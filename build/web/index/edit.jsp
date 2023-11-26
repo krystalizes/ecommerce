@@ -29,8 +29,7 @@
                 <c:if test="${sessionScope.taikhoan != null}">         
                 <button class="btn">    <a class="b1" href="#">${sessionScope.taikhoan.user}</a>      </button>
                 <button class="btn">    <a class="b1" href="/WebApplication3/Logout">ĐĂNG XUẤT</a>      </button>
-                <button class="btn">    <a class="b1" href="#"><i class="ti-shopping-cart"></i></a>      </button>
-                <button class="btn">    <a class="b1" href="/WebApplication3/Orderhis">LỊCH SỬ</a>      </button>
+
                 </c:if>
             </div>
         </nav>

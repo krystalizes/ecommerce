@@ -51,18 +51,8 @@ body {
 }
 
 .timkiem {
-   margin-left: 30px;
-   display:flex;
-   align-items: center;
-}
-
-
-.form1 {
-    display: flex;
-    margin-left: 200px;
-}
-.log {
-    display: flex;
+   margin-left: 400px;
+   margin-right: 20px;
 }
 
 
@@ -200,7 +190,7 @@ a {
     transform:translateX(-50%);
 }
 .show .modal{
-    top:140px;
+    top:110px;
     transition:all 0.25s ease-in-out;
 }
 .modal-header{
@@ -226,10 +216,7 @@ a {
 .ip{
     width:100%;
 }
-.ip:focus{
-   background-color: darkgray;
-   color:#FFF0F5;
-}
+
 .modal-footer{
     padding:15px 20px 40px 20px;
     border-top: 1px solid #dedede;
@@ -237,7 +224,24 @@ a {
 #luu{
     float:right;
 }
-
+.btn2 {
+  padding: 8px 8px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  background-color: white; 
+  color: black; 
+  border-radius: 12px;
+  border: 2px solid rgb(133, 127, 122);
+}
+.btn2:hover {
+  background-color: rgb(133, 127, 122);
+  color: white;
+}
 
 
 

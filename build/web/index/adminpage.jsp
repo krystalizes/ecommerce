@@ -71,7 +71,7 @@
                                 <input name="txt5" type="text" class="ip">                               
                             </div>
                             <div class="modal-footer">
-                                <button  class="btn" id="luu" type="submit"><i class="ti-plus"> Lưu</i> </button> 
+                                <button  class="btn2" id="luu" type="submit"><i class="ti-plus"> Lưu</i> </button> 
                             </div>
                         </form>                                          
                     </div>
@@ -80,7 +80,7 @@
         <center>
             <div class="tieude">
                 <h2><b>Manage Product</b></h2>
-                <button  id="btn-open" class="btn" onclick="modal()"><i class="ti-plus"></i></a> </button> 				
+                <button  id="btn-open" class="btn2" onclick="modal()"><i class="ti-plus"></i></a> </button> 				
             </div>  
             <table class="bangsp" border="1px" width="80%" style="vertical-align: middle; text-align: center;">
                 <tr>
@@ -103,8 +103,8 @@
                         <td>${o.gia}$</td>
                         <td>${o.chitiet}</td>
                         <td>
-                            <button  class="btn"><a  href="Loadedit?pid=${o.id}"><i class="ti-cut"></i></a> </button> 
-                            <button  class="btn"><a  href="Delete?pid=${o.id}"><i class="ti-trash"></i></a> </button> 
+                            <button  class="btn2"><a  href="Loadedit?pid=${o.id}"><i class="ti-cut"></i></a> </button> 
+                            <button  class="btn2"><a  href="Delete?pid=${o.id}"><i class="ti-trash"></i></a> </button> 
                         </td>
                     </tr>
                 </c:forEach>    

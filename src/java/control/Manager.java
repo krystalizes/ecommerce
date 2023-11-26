@@ -32,7 +32,7 @@ public class Manager extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         HttpSession session=request.getSession();
         Taikhoan a=(Taikhoan)session.getAttribute("taikhoan");
-        if (a == null){
+        if (a==null||a.getId()==0){
             request.getRequestDispatcher("Trangchu").forward(request, response);
         }else{
             DAO dao=new DAO();

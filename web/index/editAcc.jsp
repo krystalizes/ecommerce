@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%--<%@page contentType="text/html" pageEncoding="UTF-8"%>--%>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,10 +27,14 @@
                      <button class="btn">    <a class="b1" href="/WebApplication3/Manager">MANAGE PRODUCT</a>         </button>
                      <button class="btn">    <a class="b1" href="/WebApplication3/Thongke">THỐNG KÊ</a>         </button>
                  </c:if>
-                <c:if test="${sessionScope.taikhoan != null}">         
+                <c:if test="${sessionScope.taikhoan != null}">   
+                <c:if test="${sessionScope.taikhoan.isAdmin == 0}">  
+                <button class="btn">    <a class="b1" href="/WebApplication3/Cart"><i class="ti-shopping-cart"></i></a>      </button>
+                <button class="btn">    <a class="b1" href="/WebApplication3/Orderhis">LỊCH SỬ</a>      </button>
+                <button class="btn">    <a class="b1" href="/WebApplication3/LoadeditAcc">THÔNG TIN</a>      </button>
+                </c:if>
                 <button class="btn">    <a class="b1" href="#">${sessionScope.taikhoan.user}</a>      </button>
-                <button class="btn">    <a class="b1" href="/WebApplication3/Logout">ĐĂNG XUẤT</a>      </button>
-
+                <button class="btn">    <a class="b1" href="/WebApplication3/Logout">ĐĂNG XUẤT</a>      </button>             
                 </c:if>
             </div>
         </nav>
@@ -49,29 +54,21 @@
     <div id="modal-container" >
                 <div class="modal" id="modal-demo">
                     <div class="modal-header">
-                        <h3>Sửa thông tin sản phẩm</h3>
-                        <button  id="btn-close"><a href="/WebApplication3/Manager"><i class="ti-close"></i></a> </button> 
+                        <h3>Sửa thông tin khách hàng</h3>
+                        <button  id="btn-close"><a href="/WebApplication3/Trangchu"><i class="ti-close"></i></a> </button> 
                     </div>
                     <div class="modal-body">
-                        <form action="/WebApplication3/Edit" method="post" class="form1">
-                            <div class="themsp">
-                                <p>ID</p>
-                                <input name="txt1" value="${detail.id}" type="hidden" readonly class="ip">
-                                <p>Tên</p>
-                                <input name="txt2" value="${detail.ten}" type="text" class="ip">
-                                <P>Ảnh</p>
-                                <input name="txt3" value="${detail.anh}" type="text" class="ip">
-                                <P>Gía</p>
-                                <input name="txt4" value="${detail.gia}" type="text" class="ip">
-                                <P>Số lượng</p>
-                                <input name="txt7" value="${detail.soluong}" type="text" class="ip">
-                                <P>Chi tiết</p>
-                                <input name="txt5" value="${detail.chitiet}" type="text" class="ip">
-                                <P>Danh mục</p>
-                                <input name="txt6" value="${detail.danhmuc}" type="text" class="ip">                               
+                        <form action="/WebApplication3/EditAcc" method="post" class="form1" accept-charset="UTF-8>
+                            <div class="themsp">                              
+                                <p>Họ Tên</p>
+                                <input name="txt1" value="${detail.name}" type="text" class="ip">                                
+                                <P>Số điện thoại</p>
+                                <input name="txt2" value="${detail.sdt}" type="text" class="ip">
+                                <P>Địa chỉ</p>
+                                <input name="txt3" value="${detail.dchi}" type="text" class="ip">                               
                             </div>
                             <div class="modal-footer">
-                                <button  class="btn" id="luu" type="submit"><i class="ti-plus"> Lưu</i> </button>                             
+                                <button  class="btn2" id="luu" type="submit"><i class="ti-plus"> Lưu</i> </button>                             
                             </div>
                         </form>                                          
                     </div>

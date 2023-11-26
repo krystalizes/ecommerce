@@ -26,13 +26,14 @@
                  <c:if test="${sessionScope.taikhoan.isAdmin == 1}">      
                      <button class="btn">    <a class="b1" href="/WebApplication3/Manager">MANAGE PRODUCT</a>         </button>
                  </c:if>
-                <c:if test="${sessionScope.taikhoan != null}">         
-                <button class="btn">    <a class="b1" href="#">${sessionScope.taikhoan.user}</a>      </button>
-                <button class="btn">    <a class="b1" href="/WebApplication3/Logout">ĐĂNG XUẤT</a>      </button>
-                 <c:if test="${sessionScope.taikhoan.isAdmin == 0}">  
+                <c:if test="${sessionScope.taikhoan != null}">  
+                <c:if test="${sessionScope.taikhoan.isAdmin == 0}">  
                 <button class="btn">    <a class="b1" href="/WebApplication3/Cart"><i class="ti-shopping-cart"></i></a>      </button>
                 <button class="btn">    <a class="b1" href="/WebApplication3/Orderhis">LỊCH SỬ</a>      </button>
+                <button class="btn">    <a class="b1" href="/WebApplication3/LoadeditAcc">THÔNG TIN</a>      </button>
                 </c:if>
+                <button class="btn">    <a class="b1" href="#">${sessionScope.taikhoan.user}</a>      </button>
+                <button class="btn">    <a class="b1" href="/WebApplication3/Logout">ĐĂNG XUẤT</a>      </button>              
                 </c:if>
             </div>
         </nav>
@@ -61,6 +62,9 @@
                 <tr>
                     <th>ID</th>
                     <th>MÃ GIAO DỊCH</th>
+                    <th>NGƯỜI NHẬN</th>
+                    <th>SĐT</th>
+                    <th>ĐỊA CHỈ</th>
                     <th>NGÀY MUA</th>
                     <th>TỔNG TIỀN</th>                   
                 </tr>
@@ -68,6 +72,9 @@
                     <tr class="clickable-row" onclick="window.location='Orderinfo?oid=${o.id}'">                    
                         <td>${o.id}</td>
                         <td>${o.transactionid}</td>
+                        <td>${o.name}</td>
+                        <td>${o.sdt}</td>
+                        <td>${o.dchi}</td>
                         <td>${o.date}</td>
                         <td>${o.tien}$</td>                      
                     </tr>

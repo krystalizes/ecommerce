@@ -26,13 +26,15 @@
                  <c:if test="${sessionScope.taikhoan.isAdmin == 1}">      
                      <button class="btn">    <a class="b1" href="/WebApplication3/Manager">MANAGE PRODUCT</a>         </button>
                  </c:if>
-                <c:if test="${sessionScope.taikhoan != null}">         
-                <button class="btn">    <a class="b1" href="#">${sessionScope.taikhoan.user}</a>      </button>
-                <button class="btn">    <a class="b1" href="/WebApplication3/Logout">ĐĂNG XUẤT</a>      </button>
+                <c:if test="${sessionScope.taikhoan != null}">   
                  <c:if test="${sessionScope.taikhoan.isAdmin == 0}">  
                 <button class="btn">    <a class="b1" href="/WebApplication3/Cart"><i class="ti-shopping-cart"></i></a>      </button>
                 <button class="btn">    <a class="b1" href="/WebApplication3/Orderhis">LỊCH SỬ</a>      </button>
+                <button class="btn">    <a class="b1" href="/WebApplication3/LoadeditAcc">THÔNG TIN</a>      </button>
                 </c:if>
+                <button class="btn">    <a class="b1" href="#">${sessionScope.taikhoan.user}</a>      </button>
+                <button class="btn">    <a class="b1" href="/WebApplication3/Logout">ĐĂNG XUẤT</a>      </button>
+                
                 </c:if>
             </div>
         </nav>

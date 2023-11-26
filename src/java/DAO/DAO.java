@@ -171,8 +171,11 @@ public class DAO {
             while (rs.next()) {
                 return new Taikhoan(rs.getInt(1),
                         rs.getString(2),
-                        rs.getString(3),                      
-                        rs.getInt(4));
+                        rs.getString(3),                       
+                        rs.getInt(4),
+                        rs.getString(5),
+                        rs.getString(6),
+                        rs.getString(7));
             }
         } catch (Exception e) {
         }
@@ -189,7 +192,10 @@ public class DAO {
                 return new Taikhoan(rs.getInt(1),
                         rs.getString(2),
                         rs.getString(3),                       
-                        rs.getInt(4));
+                        rs.getInt(4),
+                        rs.getString(5),
+                        rs.getString(6),
+                        rs.getString(7));
             }
         } catch (Exception e) {
         }
@@ -197,7 +203,7 @@ public class DAO {
         
     }
     public void signup(String user, String pass){
-        String query = "insert into Account values(?,?,0)";   
+        String query = "insert into Account values(?,?,0, NULL, NULL, NULL)";   
         try {
             conn = new DBContext().getConnection();
             ps = conn.prepareStatement(query);
@@ -374,15 +380,18 @@ public class DAO {
         }    
         return -1;
     }
-    public int themDonhang(String transactionid, int id, String date, int price){
-        String query = "insert into [dbo].[order] ([transactionid],[AccountID],[date],[price]) OUTPUT INSERTED.id VALUES (?, ?, ?, ?)";
+    public int themDonhang(String transactionid, int id, String name, String sdt, String dchi, String date, int price){
+        String query = "insert into [dbo].[order] ([transactionid],[AccountID],[name],[sdt],[dchi],[date],[price]) OUTPUT INSERTED.id VALUES (?, ?, ?, ?, ?, ?, ?)";
         try {
             conn = new DBContext().getConnection();
             ps = conn.prepareStatement(query, PreparedStatement.RETURN_GENERATED_KEYS);
             ps.setString(1,transactionid);
             ps.setInt(2,id); 
-            ps.setString(3,date);
-            ps.setInt(4,price);         
+            ps.setString(3,name);
+            ps.setString(4,sdt);
+            ps.setString(5,dchi);
+            ps.setString(6,date);
+            ps.setInt(7,price);         
             ps.execute(); 
             try (ResultSet generatedKeys = ps.getGeneratedKeys()) {
                 if (generatedKeys.next()) {
@@ -423,8 +432,11 @@ public class DAO {
                 list.add(new Donhang(rs.getInt(1),
                         rs.getString(2),
                         rs.getInt(3),
-                        rs.getString(4),                                   
-                        rs.getInt(5)));
+                        rs.getString(4),   
+                        rs.getString(5),   
+                        rs.getString(6),   
+                        rs.getString(7),                                   
+                        rs.getInt(8)));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -494,5 +506,40 @@ public class DAO {
              e.printStackTrace();
         }
         return list;
+    }
+    public Taikhoan getTaikhoanbyID(int id){
+        String query = "select * from Account where [uID] = ?";
+        try {
+            conn = new DBContext().getConnection();
+            ps = conn.prepareStatement(query);
+            ps.setInt(1,id);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                return new Taikhoan(rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),                       
+                        rs.getInt(4),
+                        rs.getString(5),
+                        rs.getString(6),
+                        rs.getString(7));
+            }
+        } catch (Exception e) {
+        }
+        return null;
+        
+    }
+     public void updateTaikhoan(String name, String sdt, String dchi, int id) {
+         String query = "UPDATE [Account] SET [name] = ?, [sdt] = ?, [dchi] = ? WHERE [uID] = ?";
+        try {
+            conn = new DBContext().getConnection();
+            ps = conn.prepareStatement(query);
+            ps.setString(1, name);
+            ps.setString(2, sdt);
+            ps.setString(3, dchi);
+            ps.setInt(4, id);
+            ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -2,6 +2,7 @@
 package control;
 
 import DAO.DAO;
+import com.sun.xml.internal.bind.v2.runtime.output.SAXOutput;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -39,12 +40,16 @@ public class Payment extends HttpServlet {
             request.getRequestDispatcher("Trangchu").forward(request, response);
         }else{
             int id=a.getId();
+            String name=a.getName();
+            String sdt=a.getSdt();
+            String dchi=a.getDchi();
             String transactionid=request.getParameter("transactionid");
             String tong = request.getParameter("tong");
             LocalDateTime currentDateTime = LocalDateTime.now();
             String formattedDateTime = currentDateTime.format(DateTimeFormatter.ofPattern("HH:mm:ss dd-MM-yyyy "));
             int tongval=(int)Double.parseDouble(tong);
-            int i=dao.themDonhang(transactionid,id,formattedDateTime,tongval);                 
+            int i=dao.themDonhang(transactionid,id,name,sdt,dchi,formattedDateTime,tongval);  
+            System.out.println(i);
             List<Giohang> list=dao.getCartbyID(id);
             for (Giohang giohang : list) {
                 int pid = giohang.getId();
