@@ -44,7 +44,7 @@ public class Themgiohang extends HttpServlet {
                 dao.themgiohang(id,id1,soluong1);
                 request.getRequestDispatcher("Trangchu").forward(request, response);
             }else{
-                request.getRequestDispatcher("Trangchu").forward(request, response);
+                request.getRequestDispatcher("Cart").forward(request, response);
             }
         }
         

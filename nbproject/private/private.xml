@@ -12,11 +12,10 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/javacode/WebApplication3/src/java/control/Editcart.java</file>
+            <file>file:/D:/javacode/WebApplication3/web/index/cua_hang.jsp</file>
             <file>file:/D:/javacode/WebApplication3/src/java/DAO/DAO.java</file>
-            <file>file:/D:/javacode/WebApplication3/src/java/control/Cart.java</file>
-            <file>file:/D:/javacode/WebApplication3/src/java/control/Payment.java</file>
-            <file>file:/D:/javacode/WebApplication3/web/index/giohang.jsp</file>
+            <file>file:/D:/javacode/WebApplication3/src/java/control/Cuahang.java</file>
+            <file>file:/D:/javacode/WebApplication3/src/java/control/LoadProduct.java</file>
         </group>
     </open-files>
 </project-private>

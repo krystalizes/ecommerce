@@ -451,4 +451,48 @@ public class DAO {
         }
         return list;
     }
+    public List<Sanpham> getTop3Product() {
+        List<Sanpham> list = new ArrayList<>();
+        String query = "select top 3 * from product";
+        try {
+            conn = new DBContext().getConnection();
+            ps = conn.prepareStatement(query);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new Sanpham(rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getInt(4),
+                        rs.getInt(5),
+                        rs.getString(6),
+                        rs.getString(7)));
+            }
+        } catch (Exception e) {
+             e.printStackTrace();
+        }
+        return list;
+    }
+    public List<Sanpham> getNext3Product(int amount) {
+        List<Sanpham> list = new ArrayList<>();
+        String query = "select * from product order by id offset ? rows fetch next 3 rows only";
+        try {
+            conn = new DBContext().getConnection();
+            ps = conn.prepareStatement(query);
+            ps.setInt(1, amount);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new Sanpham(rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getInt(4),
+                        rs.getInt(5),
+                        rs.getString(6),
+                        rs.getString(7)));
+            }
+            System.out.println(list);
+        } catch (Exception e) {
+             e.printStackTrace();
+        }
+        return list;
+    }
 }

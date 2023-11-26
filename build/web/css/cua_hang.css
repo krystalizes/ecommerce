@@ -39,8 +39,8 @@ body {
     background-color: rgb(133, 127, 122);
     border: 0;
     cursor: pointer;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
     font: optional;
     height: 25px;
     width: 80px;
@@ -51,8 +51,18 @@ body {
 }
 
 .timkiem {
-   margin-left: 400px;
-   margin-right: 20px;
+   margin-left: 30px;
+}
+.timkiem1 {
+    margin-right: 10px;
+}
+
+.form1 {
+    display: flex;
+    margin-left: 200px;
+}
+.log {
+    display: flex;
 }
 
 .search-icon {
@@ -143,8 +153,10 @@ a {
     margin-top: 100px;
     background-color: white;
     color: black;
+    text-align: center;
 }
 .giua-2{
+    text-align: center;
     margin-left: 10%;
     margin-right: 10%;
 }
@@ -166,7 +178,9 @@ a {
     transform: scale(1.05);
 }
 ul {
-  list-style: none;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 li{
     width: 25%;
@@ -179,4 +193,33 @@ li img{
 }
 li{
     text-decoration: none;
+}
+.clear {
+    clear: both;
+}
+
+.btn2 {
+  padding: 16px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  background-color: white; 
+  color: black; 
+  border-radius: 12px;
+  border: 2px solid rgb(133, 127, 122);
+}
+.btn2:hover {
+  background-color: rgb(133, 127, 122);
+  color: white;
+}
+.center-btn {
+    text-align: center;
+    margin-top: 20px; 
+}
+.content{
+    text-align: center;
 }

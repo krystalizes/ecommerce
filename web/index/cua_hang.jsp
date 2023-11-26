@@ -8,10 +8,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shop all</title>
     <style>
-     <%@ include file="/css/top.css"%>
+     <%@ include file="/css/cua_hang.css"%>
     </style>
     <link rel="stylesheet" href="/WebApplication3/icon/themify-icons-font/themify-icons/themify-icons.css">
     <script src="test.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 <body>
     <div class="header">
@@ -55,22 +56,28 @@
     </div>
     
     <div class="giua">
-        <div class="giua-2">
             <ul>
-                <c:forEach items="${listp}" var="o">
-                    <li>
-                        <a href="Detail?pid=${o.id}">
-                            <img src="${o.anh}" class="pic1">
-                            <p class="pa1">${o.ten}</p>
-                            <p class="tien1">${o.gia}$</p>
-                        </a>
-                    </li>
-                </c:forEach>
+                <div class="giua-2">
+                    <c:forEach items="${listp}" var="o">
+                        <div  class="content">
+                            <li>
+                                <a href="Detail?pid=${o.id}">
+                                    <img src="${o.anh}" class="pic1">
+                                    <p class="pa1">${o.ten}</p>
+                                    <p class="tien1">${o.gia}$</p>
+                                </a>
+                            </li>
+                        </div>
+                    </c:forEach>
+                    <div class="clear"></div>
+                </div>              
             </ul>
     </div>
+    <div class="center-btn">
+        <button onclick="loadMore()" class="btn2">Load more</button>
     </div>
-
     <div class="footer">
+        
         <div class="cot1">
             <img  src="/WebApplication3/anh/logo.png" class="logo1">
             <p class="f">Store Online: 0902 798 994</p>
@@ -101,5 +108,24 @@
 
     </div>
     <script>window.onload=function(){search.focus()}</script>
+    <script>
+        function loadMore() {
+            $.ajax({
+                url:"/WebApplication3/LoadProduct?exist="+document.getElementsByClassName("content").length,
+                type:"get",
+//                data: {
+//                    exist:amount;
+//                },
+                success:function (data){
+                    var row=document.getElementsByClassName("giua-2")[0];
+                    row.innerHTML+=data;
+                },
+                error:function (xhr){
+                    
+                },
+            });
+    
+        }
+    </script>
 </body>
 </html>

@@ -37,11 +37,9 @@
             </div>
         </nav>
         <form action="SearchNV" method="post" class="form1">
-                <div class="timkiem">
-                    <div class="timkiem1">
-                    <input name="txt" type="text" id="search">
-                    </div>
-                    <button type="submit" class="btn"><i class="search-icon ti-search"></i></button> 
+                <div class="timkiem">                   
+                    <button type="submit" class="btn"><i class="search-icon ti-search"></i></button>
+                    <input name="txt" type="text" id="search" >                   
                 </div>
        </form>
         <c:if test="${sessionScope.taikhoan == null}">         

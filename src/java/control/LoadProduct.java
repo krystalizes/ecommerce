@@ -1,4 +1,8 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package control;
 
 import DAO.DAO;
@@ -12,9 +16,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Sanpham;
 
-
-@WebServlet(name = "Cuahang", urlPatterns = {"/Cuahang"})
-public class Cuahang extends HttpServlet {
+/**
+ *
+ * @author acer
+ */
+@WebServlet(name = "LoadProduct", urlPatterns = {"/LoadProduct"})
+public class LoadProduct extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -29,9 +36,26 @@ public class Cuahang extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         DAO dao=new DAO();
-        List<Sanpham> list=dao.getTop3Product();
-        request.setAttribute("listp", list);
-        request.getRequestDispatcher("/index/cua_hang.jsp").forward(request, response);
+        PrintWriter out = response.getWriter();       
+        String amount=request.getParameter("exist");      
+        int iamount=Integer.parseInt(amount);
+        List<Sanpham> list=dao.getNext3Product(iamount);      
+        int count = 0;
+        for(Sanpham o:list){
+            out.println("<div  class=\"content\">\n" +
+"                        <li>\n" +
+"                            <a href=\"Detail?pid="+o.getId()+"\">\n" +
+"                                <img src=\""+o.getAnh()+"\" class=\"pic1\">\n" +
+"                                <p class=\"pa1\">"+o.getTen()+"</p>\n" +
+"                                <p class=\"tien1\">"+o.getGia()+"$</p>\n" +
+"                            </a>\n" +
+"                        </li>\n" +
+"                    </div>");
+            count++;
+            if (count % 3 == 0) {
+                out.println("<div style=\"clear: both;\"></div>");
+            }
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
